@@ -10,6 +10,7 @@ class ModelArgs:
     n_layers: int
     hidden_dim: int
     n_kv_groups: int
-    rope_theta: float
-    dtype: jnp.dtype = jnp.bfloat16
+    rope_base: float
     rope_freq: dict
+    param_dtype: jnp.dtype = jnp.float32
+    dtype: jnp.dtype = jnp.bfloat16
