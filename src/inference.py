@@ -121,17 +121,3 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
         idx = jnp.concatenate([idx, idx_next], axis=1)
 
     return idx
-
-
-if __name__ == "__main__":
-    # Assuming LLAMA_SIZE_STR is defined (e.g., "1B")
-    LLAMA_SIZE_STR = "1B"
-
-    tokenizer_file_path = hf_hub_download(
-        repo_id=f"meta-llama/Llama-3.2-{LLAMA_SIZE_STR}-Instruct",
-        filename="original/tokenizer.model",
-        local_dir=f"Llama-3.2-{LLAMA_SIZE_STR}-Instruct"
-    )
-
-    tokenizer = Tokenizer(tokenizer_file_path)
-    chat_tokenizer = ChatFormat(tokenizer)
